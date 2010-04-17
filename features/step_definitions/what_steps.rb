@@ -9,11 +9,11 @@ Given /^that I am viewing the What page$/ do
 end
 
 When /^I enter a project definition$/ do
-  fill_in "Submission", :with => 'My Project'
+  fill_in "submission_submission", :with => 'My Project'
 end
 
 When /^I enter my name$/ do
-  fill_in 'Name', :with => 'Bob Bobson'
+  fill_in 'submission_name', :with => 'Bob Bobson'
 end
 
 When /^I click 'I am working on \.\.\.'$/ do
@@ -22,13 +22,12 @@ end
 
 Then /^I should see my project information in on the What page$/ do
   # todo FIX SELECTOR SCOPE
-  page.should have_selector('div#projects')
   page.should contain 'My Project'
   page.should contain 'Bob Bobson'
 end
 
 When /^I enter what I am interested in working on$/ do
-  fill_in "Submission", :with => 'I like stuff'
+  fill_in "submission_submission", :with => 'I like stuff'
 end
 
 When /^I click 'I am interested in \.\.\.'$/ do
@@ -69,3 +68,13 @@ end
 Then /^that submission should no longer be present on the What page$/ do
   page.should_not contain 'cocks'
 end
+
+Then /^I should see confirmation that my submission was received$/ do
+  page.should contain 'Submission received.'
+end
+
+Then /^I should see confirmation that a submission was deleted$/ do
+  page.should contain 'Submission deleted.'
+end
+
+

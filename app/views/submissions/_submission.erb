@@ -1,8 +1,8 @@
 <% form_for(submission, :url => { :action => 'delete'}) do |f| %>
 	<div id='submission_<%=submission.id %>'>
 		<%= f.hidden_field :id %>
-		<%= f.submit 'x', :class => 'deleter'%>
+		<%= f.submit 'x', :class => 'deleter' %>
 		<em><%= submission.submission %></em>
-		<strong><%= submission.name %> at <%= submission.created_at %></strong>
+		<strong><%= time_ago_in_words(submission.created_at) %> ago by <%= submission.name %> </strong>
 	</div>
 <% end %>

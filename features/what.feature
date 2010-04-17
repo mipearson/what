@@ -11,6 +11,7 @@ Scenario: User is working on a project
 	And I enter my name 
 	And I click 'I am working on ...'
 	Then I should see my project information in on the What page
+	And I should see confirmation that my submission was received
 	
 Scenario: User is interested in a topic
 	Given that I am viewing the What page
@@ -18,12 +19,14 @@ Scenario: User is interested in a topic
 	And I enter my name
 	And I click 'I am interested in ...'
 	Then I should see my 'interested in' information in the What page
+	And I should see confirmation that my submission was received
 
 Scenario: User wishes to delete an entry	
   Given that there is a submission that I wish to delete
 	And that I am viewing the What page
 	When I delete that submission
 	Then that submission should no longer be present on the What page
+	And I should see confirmation that a submission was deleted
 	
 Scenario: Viewing the page
 	Given that there are several projects and interests already entered

@@ -60,7 +60,7 @@ h2 {
 
 .workage strong {
   margin-bottom: 1.5em;
-  color: #ccc;
+  color: #aaa;
 }
 
 form {
@@ -99,8 +99,12 @@ textarea {
   float: right;
 }
 
-.contentPadding {
-  padding-right: 4em;
+.contentPaddingRight {
+  padding-left: 1.75em;
+}
+
+.contentPaddingLeft {
+  padding-right: 1.75em;
 }
 
 .credits {
@@ -110,5 +114,27 @@ textarea {
 
 .new_submission {
     float: right;
+}
 
+.submissionMsg {
+  /*background-color: #eee;*/ 
+  border: 1px solid #ccc;  
+  padding: 0.5em;
+  margin-bottom: 1em;
+  /* width: 100%; */
+}
+
+.deleter {
+  float: right;
+  background: url(../images/delete.gif) no-repeat;
+  border: none;
+  height: 20px;
+  width: 16px;
+  border: 1px solid white;
+  text-indent: -1000px;
+}
+
+.deleter:hover {
+  border: 1px solid #ccc;
+}
 }

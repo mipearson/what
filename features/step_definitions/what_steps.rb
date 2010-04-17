@@ -55,3 +55,17 @@ Then /^I should see all of the projects and interests$/ do
   page.should contain 'Stuff'
   page.should contain 'Steve'
 end
+
+Given /^that there is a submission that I wish to delete$/ do
+  @delete_candidate = Submission.create!(:submission => 'cocks', :name => 'Mister Cock', :kind => 'project')
+end
+
+When /^I delete that submission$/ do
+  within("#submission_#{@delete_candidate.id}") do
+    click 'x'
+  end
+end
+
+Then /^that submission should no longer be present on the What page$/ do
+  page.should_not contain 'cocks'
+end

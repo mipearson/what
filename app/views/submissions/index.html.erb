@@ -1,37 +1,49 @@
-<body>
-<h1>Home#index</h1>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>WHAT</title>
+    <link rel="stylesheet" type="text/css" href="javascripts/screen.css">
+  </head>
+	<body>
+	  <div class="container">
+	    <div class="workage">
+	      <h1 title="WTF?!">What</h1>
+	    </div>
+	    <div class="workage nextDoor">
+				<% form_for(@submission, :url => { :action => 'create' }) do |f| %>
+	        <%= f.text_area :submission, :value => 'I want (x)' %>
+					<%= f.text_field :name, :value => 'Bob Bobson' %>
+					<%= f.hidden_field :kind %>
 
-<% form_for(@submission, :url => { :action => 'create' }) do |f| %>
-	<p>
-	  <%= f.label :submission %>
-	 	<%= f.text_area :submission %>
-	</p>
-	<p>
-		<%= f.label :name %>
-		<%= f.text_field :name %>
-	</p>
-	<%= f.hidden_field :kind %>
-	<p>
-		<%= f.submit 'I am working on ...' %>
-		<%= f.submit 'I am interested in ...' %>
-	</p>
-<% end %>
-
-<div id='projects'>
-<% @projects.each do |sub| %>
-	<p>
-		<%= sub.submission %><br>
-		<%= sub.name%><br>
-	</p>
-<% end %>
-</div>
-
-<div id='interests'>
-	<% @interests.each do |sub| %>
-		<p>
-			<%= sub.submission %><br>
-			<%= sub.name%><br>
-		</p>
-	<<% end %>
-</div>
-</body>
+					<%= f.submit 'I am working on ...', :class => 'button' %>
+					<%= f.submit 'I am interested in ...', :class => 'button' %>
+				<% end %>
+      </div>
+      <div class="clearBoth"></div>
+      <div class="content">
+        <div class="workage">
+					<div class="contentPadding">
+	          <h2>I am working on</h2>
+						<%= render :partial => 'submission', :collection => @projects %>
+					</div>
+        </div>
+        <div class="workage nextDoor">
+					<div class="contentPadding">
+	          <h2>I want to work on</h2>
+						<%= render :partial => 'submission', :collection => @interests %>
+					</div>
+        </div>
+      </div>
+      <div class="clearBoth"></div>
+			<div class="contentPadding">
+				<div class="credits">
+					by Michael Pearson, Sam Weller and Keith Pitt<br>
+					available on BananaJour as 'what'<br>
+					please fix our buttons
+				</div>
+			</div>
+			</div>
+    </div>
+  </body>
+</html>

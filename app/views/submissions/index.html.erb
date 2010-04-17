@@ -1,0 +1,37 @@
+<body>
+<h1>Home#index</h1>
+
+<% form_for(@submission, :url => { :action => 'create' }) do |f| %>
+	<p>
+	  <%= f.label :submission %>
+	 	<%= f.text_area :submission %>
+	</p>
+	<p>
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	</p>
+	<%= f.hidden_field :kind %>
+	<p>
+		<%= f.submit 'I am working on ...' %>
+		<%= f.submit 'I am interested in ...' %>
+	</p>
+<% end %>
+
+<div id='projects'>
+<% @projects.each do |sub| %>
+	<p>
+		<%= sub.submission %><br>
+		<%= sub.name%><br>
+	</p>
+<% end %>
+</div>
+
+<div id='interests'>
+	<% @interests.each do |sub| %>
+		<p>
+			<%= sub.submission %><br>
+			<%= sub.name%><br>
+		</p>
+	<<% end %>
+</div>
+</body>
